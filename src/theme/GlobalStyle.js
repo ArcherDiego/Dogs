@@ -7,6 +7,7 @@ const GlobalStyle = createGlobalStyle`
 
     body {
         margin: 0px;
+        padding-top: 4rem;
         color: #333;
         font-family: ${({theme}) => theme.fontFamily.first};
     }
@@ -19,6 +20,10 @@ const GlobalStyle = createGlobalStyle`
         list-style: none;
         padding: 0;
         margin: 0;
+    }
+
+    a {
+        text-decoration: none;
     }
 
     img {

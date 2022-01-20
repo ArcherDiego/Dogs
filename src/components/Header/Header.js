@@ -1,15 +1,15 @@
 import { NavLink } from "react-router-dom"
+import { HeaderStyle, NavLinkLogin } from "./style"
+import { ReactComponent as Dogs } from "../../assets/image/dogs.svg"
 
 const Header = () => {
     return (
-        <ul>
-            <li>
-                <NavLink to="/" end >Home</NavLink>
-            </li>
-            <li>
-                <NavLink to="/login">Login / Register</NavLink>
-            </li>
-        </ul>
+        <HeaderStyle>
+            <nav>
+                <NavLink to="/" end ><Dogs /></NavLink>
+                <NavLinkLogin to="/login">Login / Register</NavLinkLogin>
+            </nav>
+        </HeaderStyle>
     )
 }
 
