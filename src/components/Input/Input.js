@@ -1,12 +1,7 @@
 import React from "react";
 import { InputStyle, LabelStyle, ErrorStyle } from "./style";
 
-const Input = ({label, type, value, setValue, name, ...props}) => {
-
-    const handleChange = ({target}) => {
-        setValue(target.value)
-    }
-
+const Input = ({label, type, value, onChange, name, erro, onBlur }) => {
     return (
         <div style={{marginBottom: '1rem'}}>
             <LabelStyle htmlFor={ name }>{ label }</LabelStyle>
@@ -15,10 +10,10 @@ const Input = ({label, type, value, setValue, name, ...props}) => {
                 id={ name } 
                 name={ name } 
                 value={ value } 
-                onChange={ handleChange } 
-                {...props} 
+                onChange={ onChange }
+                onBlur={ onBlur } 
             />
-            <ErrorStyle>Error</ErrorStyle>
+            {erro && <ErrorStyle>{ erro }</ErrorStyle>}
         </div>
     )
 }
