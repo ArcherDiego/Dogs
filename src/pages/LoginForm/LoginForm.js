@@ -1,4 +1,5 @@
 import React from "react"
+import axios from "axios"
 import { Link } from "react-router-dom"
 import useForm from "../../hooks/useForm"
 import Input from "../../components/Input/Input"
@@ -9,6 +10,27 @@ const LoginForm = () => {
 
     const username = useForm()
     const password = useForm()
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+
+        axios('https://dogsapi.origamid.dev/json/api/user', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                username,
+                password,
+            })
+        }).then(response => {
+            console.log(response)
+            return response.json()
+        }).then(json => {
+            console.log(json)
+            return json
+        })
+    }
 
     return (
         <LoginFormStyle>
@@ -26,7 +48,7 @@ const LoginForm = () => {
                     type="password" 
                     { ...password }
                 />
-                <Button>Join</Button>
+                <Button onSubmit={ handleSubmit }>Join</Button>
             </form>
             <Link to="register">Register</Link>
         </LoginFormStyle>

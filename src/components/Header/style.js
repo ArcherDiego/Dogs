@@ -31,5 +31,7 @@ export const NavLinkLogin = styled(NavLink)`
         height: 17px;
         background: url('${ Usuario }');
         margin-left: 0.5rem;
+        position: relative;
+        top: -1px;
     }
 `;

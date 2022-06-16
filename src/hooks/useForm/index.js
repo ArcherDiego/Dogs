@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 const types = {
     email: {
@@ -9,7 +9,7 @@ const types = {
 
 const useForm = (type) => {
 
-    const [ value, setValue ] = useState('')
+    const [ value, setValue ] = React.useState('')
     const [ erro, setErro ] = React.useState(null)
 
     const validate = (value) => {
