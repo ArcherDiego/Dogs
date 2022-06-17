@@ -12,8 +12,7 @@ const LoginForm = () => {
     const password = useForm()
 
     const handleSubmit = (event) => {
-        event.preventDefault();
-
+        event.preventDefault()
         axios('https://dogsapi.origamid.dev/json/api/user', {
             method: 'POST',
             headers: {
@@ -35,7 +34,7 @@ const LoginForm = () => {
     return (
         <LoginFormStyle>
             <h2>Login</h2>
-            <form>
+            <form onSubmit={ handleSubmit }>
                 <Input 
                     label="User" 
                     name="username" 
@@ -48,7 +47,7 @@ const LoginForm = () => {
                     type="password" 
                     { ...password }
                 />
-                <Button onSubmit={ handleSubmit }>Join</Button>
+                <Button>Join</Button>
             </form>
             <Link to="register">Register</Link>
         </LoginFormStyle>
