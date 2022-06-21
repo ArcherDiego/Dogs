@@ -1,40 +1,23 @@
 import React from "react"
-import axios from "axios"
-import { Link } from "react-router-dom"
+import { Link, Navigate } from "react-router-dom"
 import useForm from "../../hooks/useForm"
 import Input from "../../components/Input/Input"
 import Button from "../../components/Button/Button"
-import { TOKEN_POST, USER_GET } from "../../api"
 import LoginFormStyle from "./style"
+import { UserContext } from "../../useContext"
 
 const LoginForm = () => {
 
     const username = useForm()
     const password = useForm()
-
-    React.useEffect(() => {
-        const token = window.localStorage.getItem('token')
-        if(token){
-            getUser(token)
-        }
-    }, [])
-
-    const getUser = async (token) => {
-        const { url, options } = USER_GET(token)
-        const response = await axios(url, options)
-        const json = await response.json()
-        console.log(json)
-    }
+    
+    const { userLogin, login, error, loading } = React.useContext(UserContext)
+    if(login === true) return <Navigate to='/account' />
 
     const handleSubmit = async (event) => {
         event.preventDefault()
-
         if(username.validate() && password.validate()){
-            const { url, options } = TOKEN_POST({username: username.value, password: password.value})
-            
-            const response = await axios(url, options)
-            const json = await response.json()
-            window.localStorage.setItem('token', json.token)
+            userLogin(username.value, password.value)
         }
     }
 
@@ -54,9 +37,14 @@ const LoginForm = () => {
                     type="password" 
                     { ...password }
                 />
+                {loading ? (
+                <Button disabled>Loading ...</Button>
+                ) : (
                 <Button>Join</Button>
+                )}
+                {error && <p>{ error }</p>}
             </form>
-            <Link to="register">Register</Link>
+            <Link to="/register">Register</Link>
         </LoginFormStyle>
     )
 }
