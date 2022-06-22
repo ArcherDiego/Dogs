@@ -1,10 +1,11 @@
 import React from "react"
-import { Link, Navigate } from "react-router-dom"
-import useForm from "../../hooks/useForm"
+import { Navigate } from "react-router-dom"
+import Error from "../../components/Error/Error"
 import Input from "../../components/Input/Input"
 import Button from "../../components/Button/Button"
-import LoginFormStyle from "./style"
+import useForm from "../../hooks/useForm"
 import { UserContext } from "../../useContext"
+import { LoginFormStyle, LinkForgot, LinkBtn, RegisterStyle } from "./style"
 
 const LoginForm = () => {
 
@@ -42,9 +43,14 @@ const LoginForm = () => {
                 ) : (
                 <Button>Join</Button>
                 )}
-                {error && <p>{ error }</p>}
+                <Error error={ error } />
             </form>
-            <Link to="/register">Register</Link>
+            <LinkForgot to="/forgot-password">Forgot password?</LinkForgot>
+            <RegisterStyle>
+                <h3>Register</h3>
+                <p>Don't have an account yet? Register now.</p>
+                <LinkBtn to="/register">Register</LinkBtn>
+            </RegisterStyle>
         </LoginFormStyle>
     )
 }

@@ -13,17 +13,17 @@ const Router = () => {
     return (
     <BrowserRouter>
         <UserStorage>
-        <Header />
-        <Routes>
-            <Route path="/" element={ <Home /> } />
-        </Routes>
-        <Routes>
-            <Route path="/login" element={ <LoginForm /> } />
-            <Route path="/register" element={ <LoginRegister /> } />
-            <Route path="/forgot-password" element={ <LoginForgotPassword /> } />
-            <Route path="/reset-password" element={ <LoginResetPassword /> } />
-        </Routes>
-        <Footer />
+            <Header />
+            <Routes>
+                <Route path="/" element={ <Home /> } />
+            </Routes>
+            <Routes>
+                <Route path="/login" element={ <LoginForm /> } />
+                <Route path="/register" element={ <LoginRegister /> } />
+                <Route path="/forgot-password" element={ <LoginForgotPassword /> } />
+                <Route path="/reset-password" element={ <LoginResetPassword /> } />
+            </Routes>
+            <Footer />
         </UserStorage>
     </BrowserRouter>
     )

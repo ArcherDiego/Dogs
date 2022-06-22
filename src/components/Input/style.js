@@ -24,9 +24,3 @@ export const LabelStyle = styled.label`
     line-height: 1;
     padding-bottom: 0.5rem;
 `;
-
-export const ErrorStyle = styled.p`
-    color: #f31;
-    font-size: 0.875rem;
-    margin-top: 0.25rem;
-`;

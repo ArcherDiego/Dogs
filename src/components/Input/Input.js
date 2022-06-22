@@ -1,5 +1,6 @@
 import React from "react";
-import { InputStyle, LabelStyle, ErrorStyle } from "./style";
+import Error from "../Error/Error";
+import { InputStyle, LabelStyle } from "./style";
 
 const Input = ({label, type, value, onChange, name, error, onBlur }) => {
     return (
@@ -13,7 +14,7 @@ const Input = ({label, type, value, onChange, name, error, onBlur }) => {
                 onChange={ onChange }
                 onBlur={ onBlur }
             />
-            {error && <ErrorStyle>{ error }</ErrorStyle>}
+            <Error error={ error } />
         </div>
     )
 }
