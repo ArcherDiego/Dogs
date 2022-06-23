@@ -24,33 +24,35 @@ const LoginForm = () => {
 
     return (
         <LoginFormStyle>
-            <h2>Login</h2>
-            <form onSubmit={ handleSubmit }>
-                <Input 
-                    label="User" 
-                    name="username" 
-                    type="text" 
-                    { ...username }
-                />
-                <Input 
-                    label="Password" 
-                    name="password" 
-                    type="password" 
-                    { ...password }
-                />
-                {loading ? (
-                <Button disabled>Loading ...</Button>
-                ) : (
-                <Button>Join</Button>
-                )}
-                <Error error={ error } />
-            </form>
-            <LinkForgot to="/forgot-password">Forgot password?</LinkForgot>
-            <RegisterStyle>
-                <h3>Register</h3>
-                <p>Don't have an account yet? Register now.</p>
-                <LinkBtn to="/register">Register</LinkBtn>
-            </RegisterStyle>
+            <div>
+                <h2>Login</h2>
+                <form onSubmit={ handleSubmit }>
+                    <Input
+                        label="User"
+                        name="username"
+                        type="text"
+                        { ...username }
+                    />
+                    <Input
+                        label="Password"
+                        name="password"
+                        type="password"
+                        { ...password }
+                    />
+                    {loading ? (
+                    <Button disabled>Loading ...</Button>
+                    ) : (
+                    <Button>Join</Button>
+                    )}
+                    <Error error={ error } />
+                </form>
+                <LinkForgot to="/forgot-password">Forgot password?</LinkForgot>
+                <RegisterStyle>
+                    <h3>Register</h3>
+                    <p>Don't have an account yet? Register now.</p>
+                    <LinkBtn to="/register">Register</LinkBtn>
+                </RegisterStyle>
+            </div>
         </LoginFormStyle>
     )
 }

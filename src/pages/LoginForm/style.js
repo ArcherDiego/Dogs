@@ -1,10 +1,22 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import Login from "../../assets/image/login.jpg"
 
-export const LoginFormStyle = styled.div`
+export const LoginFormStyle = styled.section`
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 100vh;
+    gap: 2rem;
     opacity: 0;
     transform: translateX(-20px);
     animation: animeLeft .3s forwards;
+
+    &:before{
+        display: block;
+        content: '';
+        background: url(${Login}) no-repeat center center;
+        background-size: cover;
+    }
 
     @keyframes animeLeft {
         to{
@@ -37,6 +49,20 @@ export const LoginFormStyle = styled.div`
 
     form{
         margin-bottom: 2rem;
+        max-width: 30rem;
+    }
+
+    @media (max-width: 40rem) {
+        padding: 1rem;
+        grid-template-columns: 1fr;
+
+        &:before{
+            display: none;
+        }
+
+        form{
+            max-width: 100%;
+        }
     }
 `;
 
