@@ -1,4 +1,4 @@
-import API from "."
+const API = 'https://dogsapi.origamid.dev/json'
 
 export const TOKEN_POST = (body) => {
     return {
@@ -33,6 +33,19 @@ export const USER_GET = (token) => {
             headers: {
                 Authorization: 'Bearer ' + token,
             }
+        }
+    }
+}
+
+export const USER_POST = (body) => {
+    return {
+        url: API + '/api/user',
+        options: {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(body),
         }
     }
 }

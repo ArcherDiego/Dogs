@@ -1,5 +1,4 @@
 import React from "react"
-import axios from "axios"
 import { useNavigate } from "react-router-dom"
 import { TOKEN_POST, TOKEN_VALIDATE_POST, USER_GET } from '../api/api'
 
@@ -14,18 +13,18 @@ export const UserStorage = ({ children }) => {
 
     const getUser = async (token) => {
         const { url, options } = USER_GET(token)
-        const response = await axios.get(url, options)
+        const response = await fetch(url, options)
         const json = await response.json()
         setData(json)
         setLogin(true)
     }
 
-    const userLogin = async ({username, password}) => {
+    const userLogin = async (username, password) => {
         try{
             setError(null)
             setLoading(true)
             const { url, options } = TOKEN_POST({username, password})
-            const response = await axios.post(url, options)
+            const response = await fetch(url, options)
             if(!response.ok) throw new Error('Error: Invalid User')
             const { token } = await response.json()
             window.localStorage.setItem('token', token)
@@ -57,7 +56,7 @@ export const UserStorage = ({ children }) => {
             if(token){
                 try{
                     const { url, options } = TOKEN_VALIDATE_POST(token)
-                    const response = await axios.post(url, options)
+                    const response = await fetch(url, options)
                     if(!response.ok) throw new Error('Invalid Token')
                     await getUser(token)
                 } catch (erro) {

@@ -5,7 +5,7 @@ import { HeaderStyle, NavLinkLogin } from "./style"
 import { ReactComponent as Dogs } from "../../assets/image/dogs.svg"
 
 const Header = () => {
-    const { data } = React.useContext(UserContext)
+    const { data, userLogout } = React.useContext(UserContext)
 
     return (
         <HeaderStyle>
@@ -16,6 +16,7 @@ const Header = () => {
                 {data ? (
                 <NavLinkLogin to="/account">
                     {data.nome}
+                    <button onClick={ userLogout }>Exit</button>
                 </NavLinkLogin>
                 ) : (
                 <NavLinkLogin to="/login">
