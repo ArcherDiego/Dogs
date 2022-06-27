@@ -25,7 +25,7 @@ export const UserStorage = ({ children }) => {
             setLoading(true)
             const { url, options } = TOKEN_POST({username, password})
             const response = await fetch(url, options)
-            if(!response.ok) throw new Error('Error: Invalid User')
+            if(!response.ok) throw new Error('Error: Invalid User/Password')
             const { token } = await response.json()
             window.localStorage.setItem('token', token)
             await getUser(token)
@@ -46,9 +46,7 @@ export const UserStorage = ({ children }) => {
             setLoading(false)
             window.localStorage.removeItem('token')
             navigate('/login')
-        }, 
-    [navigate]
-    )
+        }, [navigate])
 
     React.useEffect(() => {
         const autoLogin = async () => {
@@ -65,7 +63,9 @@ export const UserStorage = ({ children }) => {
                     setLoading(false)
                 }
                 
-            }    
+            } else{
+                setLogin(false)
+            }
         }
         autoLogin()
     }, [userLogout])

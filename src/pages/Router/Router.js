@@ -7,6 +7,7 @@ import LoginForm from "../LoginForm/LoginForm"
 import LoginRegister from "../LoginRegister/LoginRegister"
 import LoginForgotPassword from "../LoginForgotPassword/LoginForgotPassword"
 import LoginResetPassword from "../LoginResetPassword/LoginResetPassword"
+import Account from "../Account/Account";
 import { UserStorage } from "../../useContext";
 
 const Router = () => {
@@ -22,6 +23,9 @@ const Router = () => {
                 <Route path="/register" element={ <LoginRegister /> } />
                 <Route path="/forgot-password" element={ <LoginForgotPassword /> } />
                 <Route path="/reset-password" element={ <LoginResetPassword /> } />
+            </Routes>
+            <Routes>
+                <Route path="/account" element={ <Account /> } />
             </Routes>
             <Footer />
         </UserStorage>
