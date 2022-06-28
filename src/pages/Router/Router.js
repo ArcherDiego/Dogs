@@ -8,6 +8,8 @@ import LoginRegister from "../LoginRegister/LoginRegister"
 import LoginForgotPassword from "../LoginForgotPassword/LoginForgotPassword"
 import LoginResetPassword from "../LoginResetPassword/LoginResetPassword"
 import Account from "../Account/Account";
+import UserFeed from "../UserFeed/UserFeed";
+import UserStatistics from "../UserStatistics/UserStatistics";
 import { UserStorage } from "../../useContext";
 
 const Router = () => {
@@ -26,6 +28,8 @@ const Router = () => {
             </Routes>
             <Routes>
                 <Route path="/account" element={ <Account /> } />
+                <Route path="/feed" element={ <UserFeed /> } />
+                <Route path="/statistics" element={ <UserStatistics /> } />
             </Routes>
             <Footer />
         </UserStorage>

@@ -1,5 +1,5 @@
 const container = {
-    maxWidth: '50rem',
+    maxWidth: '80%',
     padding: '0px 1rem',
     margin: '0 auto',
 }
