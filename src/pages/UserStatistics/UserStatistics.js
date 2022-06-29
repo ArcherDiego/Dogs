@@ -7,7 +7,9 @@ const UserStatistics = () => {
 
     if(login === false || login === null) return <Navigate to='/login' />
     return(
-        <div></div>
+        <div>
+            UserStats
+        </div>
     )
 }
 
