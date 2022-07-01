@@ -1,17 +1,18 @@
 import React from "react"
-import { useLocation } from "react-router-dom"
+import { NavLink, useLocation } from "react-router-dom"
 import { ReactComponent as Feed } from "../../assets/image/feed.svg"
 import { ReactComponent as Statistics } from "../../assets/image/estatisticas.svg"
 import { ReactComponent as AddPhoto } from "../../assets/image/adicionar.svg"
 import { ReactComponent as Exit } from "../../assets/image/sair.svg"
 import { UserContext } from "../../useContext"
-import { UserHeaderStyle, StyledNavLink } from "./style"
+import { UserHeaderStyle } from "./style"
 
 const UserHeader = () => {
     const [mobile, setMobile] = React.useState(null)
     const [title, setTitle] = React.useState('')
+    
     const location = useLocation()
-    const {userLogout} = React.useContext(UserContext)
+    const { userLogout } = React.useContext(UserContext)
 
     React.useEffect(() => {
         const {pathname} = location
@@ -32,18 +33,18 @@ const UserHeader = () => {
         <UserHeaderStyle>
             <h2>{ title }</h2>
             <nav>
-                <StyledNavLink to='/account' end activeClassName="any">
+                <NavLink to='/account'>
                     <Feed />
                     {mobile && 'My Feed'}
-                </StyledNavLink>
-                <StyledNavLink to='/account/statistics' activeClassName="any">
+                </NavLink>
+                <NavLink to='/account/statistics'>
                     <Statistics />
                     {mobile && 'My Stats'}
-                </StyledNavLink>
-                <StyledNavLink to='/account/add-photos' activeClassName="any">
+                </NavLink>
+                <NavLink to='/account/add-photos'>
                     <AddPhoto />
                     {mobile && 'Add Photos'}
-                </StyledNavLink>
+                </NavLink>
                 <button onClick={ userLogout }>
                     <Exit />
                     {mobile && 'Exit'}

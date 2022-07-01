@@ -1,3 +1,4 @@
+import React from "react"
 import { Routes, Route } from "react-router-dom"
 import UserHeader from "../../components/UserHeader/UserHeader"
 import UserFeed from "../UserFeed/UserFeed"
@@ -9,9 +10,9 @@ const User = () => {
         <section>
             <UserHeader />
             <Routes>
-                <Route path="/" element={ <UserFeed /> } />
-                <Route path="/add-photos" element={ <UserPhotoPost /> } />
-                <Route path="/statistics" element={ <UserStatistics /> } />
+                <Route path="/account" element={ <UserFeed /> } />
+                <Route path="/account/add-photos" element={ <UserPhotoPost /> } />
+                <Route path="/account/statistics" element={ <UserStatistics /> } />
             </Routes>
         </section>
     )

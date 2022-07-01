@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { NavLink } from "react-router-dom";
 
 export const UserHeaderStyle = styled.header`
     ${({theme}) => theme.container}
@@ -61,10 +60,4 @@ export const UserHeaderStyle = styled.header`
         border-color: #333;
         outline: none;
     }
-`;
-
-export const StyledNavLink = styled(NavLink)`
-  &.${props => props.activeClassName} {
-    color: red;
-  }
 `;
