@@ -33,7 +33,7 @@ const UserHeader = () => {
         <UserHeaderStyle>
             <h2>{ title }</h2>
             <nav>
-                <NavLink to='/account'>
+                <NavLink to='/account/feed'>
                     <Feed />
                     {mobile && 'My Feed'}
                 </NavLink>

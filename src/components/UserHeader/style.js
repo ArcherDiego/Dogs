@@ -60,4 +60,14 @@ export const UserHeaderStyle = styled.header`
         border-color: #333;
         outline: none;
     }
+
+    nav a.active{
+        background: white;
+        box-shadow: 0 0 0 3px #fea;
+        border-color: #fb1;
+    }
+
+    nav a.active svg > * {
+        fill: #fb1;
+    }
 `;

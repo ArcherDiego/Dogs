@@ -5,12 +5,12 @@ import UserFeed from "../UserFeed/UserFeed"
 import UserStatistics from "../UserStatistics/UserStatistics"
 import UserPhotoPost from "../UserPhotoPost/UserPhotoPost"
 
-const User = () => {
+const UserAccount = () => {
     return(
         <section>
             <UserHeader />
             <Routes>
-                <Route path="/account" element={ <UserFeed /> } />
+                <Route path="/account/feed" element={ <UserFeed /> } />
                 <Route path="/account/add-photos" element={ <UserPhotoPost /> } />
                 <Route path="/account/statistics" element={ <UserStatistics /> } />
             </Routes>
@@ -18,4 +18,4 @@ const User = () => {
     )
 }
 
-export default User
+export default UserAccount
