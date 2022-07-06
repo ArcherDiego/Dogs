@@ -1,13 +1,13 @@
 import React from "react"
-import { NavLink, useLocation } from "react-router-dom"
+import { useLocation } from "react-router-dom"
 import { ReactComponent as Feed } from "../../assets/image/feed.svg"
 import { ReactComponent as Statistics } from "../../assets/image/estatisticas.svg"
 import { ReactComponent as AddPhoto } from "../../assets/image/adicionar.svg"
 import { ReactComponent as Exit } from "../../assets/image/sair.svg"
 import { UserContext } from "../../useContext"
-import { UserHeaderStyle } from "./style"
+import { UserHeaderStyle, StyleLink } from "./style"
 
-const UserHeader = () => {
+const UserHeader = ({active, setActive}) => {
     const [mobile, setMobile] = React.useState(null)
     const [title, setTitle] = React.useState('')
     
@@ -19,32 +19,35 @@ const UserHeader = () => {
         switch(pathname){
             case '/account/statistics':
                 setTitle('Stats')
+                setActive('statistics')
                 break
             case '/account/add-photos':
                 setTitle('Add Photos')
+                setActive('add-photos')
                 break
             default:
                 setTitle('My Account')
+                setActive('account')
                 break
         }
-    }, [location])
+    }, [location, setActive])
 
     return(
         <UserHeaderStyle>
             <h2>{ title }</h2>
             <nav>
-                <NavLink to='/account/feed'>
+                <StyleLink active={active === 'account'} to='/account/feed'>
                     <Feed />
                     {mobile && 'My Feed'}
-                </NavLink>
-                <NavLink to='/account/statistics'>
+                </StyleLink>
+                <StyleLink active={active === 'statistics'} to='/account/statistics'>
                     <Statistics />
                     {mobile && 'My Stats'}
-                </NavLink>
-                <NavLink to='/account/add-photos'>
+                </StyleLink>
+                <StyleLink active={active === 'add-photos'} to='/account/add-photos'>
                     <AddPhoto />
                     {mobile && 'Add Photos'}
-                </NavLink>
+                </StyleLink>
                 <button onClick={ userLogout }>
                     <Exit />
                     {mobile && 'Exit'}

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { NavLink } from "react-router-dom";
 
 export const UserHeaderStyle = styled.header`
     ${({theme}) => theme.container}
@@ -36,7 +37,6 @@ export const UserHeaderStyle = styled.header`
         grid-template-columns: repeat(4, 1fr);
         gap: 1rem;
     }
-
     nav a,
     nav button{
         background: #eee;
@@ -69,5 +69,15 @@ export const UserHeaderStyle = styled.header`
 
     nav a.active svg > * {
         fill: #fb1;
+    }
+`;
+
+export const StyleLink = styled(NavLink)`
+    background: ${({active}) => active ? "#FFF" : "#eee"};
+    box-shadow: ${({active}) => active && "0 0 0 3px #fea"};
+    border-color: ${({active}) => active && "#fb1"};
+
+    svg > *{
+        fill: ${({active}) => active && "#fb1"};
     }
 `;

@@ -6,9 +6,11 @@ import UserStatistics from "../UserStatistics/UserStatistics"
 import UserPhotoPost from "../UserPhotoPost/UserPhotoPost"
 
 const UserAccount = () => {
+    const [active, setActive] = React.useState('account')
+
     return(
         <section>
-            <UserHeader />
+            <UserHeader active={active} setActive={setActive} />
             <Routes>
                 <Route path="/account/feed" element={ <UserFeed /> } />
                 <Route path="/account/add-photos" element={ <UserPhotoPost /> } />
