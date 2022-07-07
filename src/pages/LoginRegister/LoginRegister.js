@@ -50,7 +50,7 @@ const LoginRegister = () => {
                         type="password"
                         { ...password }
                     />
-                    {loading ? (<Button disabled>Loading...</Button>) : <Button>Registe</Button>}
+                    {loading ? (<Button disabled>Loading...</Button>) : <Button>Register</Button>}
                     <Error error={ error }/>
                 </form>
             </div>
