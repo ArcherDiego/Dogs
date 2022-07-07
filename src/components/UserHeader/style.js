@@ -31,14 +31,14 @@ export const UserHeaderStyle = styled.header`
         border-radius: .2rem;
         z-index: -1;
     }
+`;
 
-    nav{
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 1rem;
-    }
+export const NavStyle = styled.nav`
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
 
-    nav button{
+    button{
         background: #eee;
         border-radius: 0.2rem;
         height: 40px;
@@ -51,12 +51,92 @@ export const UserHeaderStyle = styled.header`
         cursor: pointer;
     }
 
-    nav button:hover,
-    nav button:focus{
+    button:hover,
+    button:focus{
         background: white;
         box-shadow: 0 0 0 3px #eee;
         border-color: #333;
         outline: none;
+    }
+`;
+
+export const NavActiveStyle = styled.nav`
+    display: block;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    padding: 0 1rem;
+    background: white;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    border-radius: 0.2rem;
+    transition: 0.3s;
+    transform: initial;
+    opacity: 1;
+    z-index: 100;
+    pointer-events: initial;
+
+    a, 
+    button{
+        display: flex;
+        align-items: center;
+        background: none;
+        width: 100%;
+        border: none;
+        border-bottom: 1px solid #eee;
+        padding: 0.5rem 0;
+        cursor: pointer;
+    }
+
+    a:hover svg > *, 
+    button:hover svg > *{
+        fill: #fb1;
+    }
+
+    button{
+        border-bottom: none;
+    }
+
+    svg{
+        margin-right: 0.5rem;
+    }
+`;
+
+export const NavMenuStyle = styled.nav`
+    display: block;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    padding: 0 1rem;
+    background: white;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    border-radius: 0.2rem;
+    transform: translateX(-10px);
+    opacity: 0;
+    pointer-events: none;
+
+    a, 
+    button{
+        display: flex;
+        align-items: center;
+        background: none;
+        width: 100%;
+        border: none;
+        border-bottom: 1px solid #eee;
+        padding: 0.5rem 0;
+        cursor: pointer;
+    }
+
+    a:hover svg > *, 
+    button:hover svg > *{
+        fill: #fb1;
+    }
+
+    button{
+        border-bottom: none;
+    }
+
+    svg{
+        margin-right: 0.5rem;
     }
 `;
 
@@ -83,7 +163,12 @@ export const StyleLink = styled(NavLink)`
         border-color: #fb1;
     ` : css`
         background: #eee;
-        box-shadow: 0 0 0 3px #eee;
+
+        &:hover,
+        &:focus{
+            border-color: #333;
+            box-shadow: 0 0 0 3px #eee;
+        }
     `}
 
     svg > *{
