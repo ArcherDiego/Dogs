@@ -1,5 +1,5 @@
 import styled from "styled-components";
 
-export const PhotoPostStyle = styled.div`
-
+export const PhotoPostStyle = styled.section`
+    ${({theme}) => theme.container}
 `;

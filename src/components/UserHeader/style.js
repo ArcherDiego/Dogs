@@ -2,7 +2,6 @@ import styled, { css } from "styled-components";
 import { NavLink } from "react-router-dom";
 
 export const UserHeaderStyle = styled.header`
-    ${({theme}) => theme.container}
     display: grid;
     grid-template-columns: 1fr auto;
     align-items: center;

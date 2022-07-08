@@ -46,7 +46,7 @@ const UserHeader = ({active, setActive}) => {
                 ))}
                 {mobile ? ( mobileMenu ? (
                 <NavActiveStyle>
-                    <NavLink active={active === 'account'} to='/account/feed'>
+                    <NavLink active={active === 'account'} to='/account'>
                         <Feed />
                         {mobile && 'My Feed'}
                     </NavLink>
@@ -65,7 +65,7 @@ const UserHeader = ({active, setActive}) => {
                 </NavActiveStyle>
                 ) : (
                 <NavMenuStyle>
-                    <NavLink active={active === 'account'} to='/account/feed'>
+                    <NavLink active={active === 'account'} to='/account'>
                         <Feed />
                         {mobile && 'My Feed'}
                     </NavLink>
@@ -84,7 +84,7 @@ const UserHeader = ({active, setActive}) => {
                 </NavMenuStyle>
                 )) : (
                 <NavStyle>
-                    <StyleLink active={active === 'account'} to='/account/feed'>
+                    <StyleLink active={active === 'account'} to='/account'>
                         <Feed />
                         {mobile && 'My Feed'}
                     </StyleLink>

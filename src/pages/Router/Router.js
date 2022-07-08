@@ -7,7 +7,6 @@ import LoginForm from "../LoginForm/LoginForm"
 import LoginRegister from "../LoginRegister/LoginRegister"
 import LoginForgotPassword from "../LoginForgotPassword/LoginForgotPassword"
 import LoginResetPassword from "../LoginResetPassword/LoginResetPassword"
-import UserAccount from "./UserAccount";
 import UserFeed from "../UserFeed/UserFeed";
 import UserStatistics from "../UserStatistics/UserStatistics";
 import UserPhotoPost from "../UserPhotoPost/UserPhotoPost";
@@ -23,11 +22,9 @@ const Router = () => {
             <Route path="/register" element={ <LoginRegister /> } />
             <Route path="/forgot-password" element={ <LoginForgotPassword /> } />
             <Route path="/reset-password" element={ <LoginResetPassword /> } />
-            <Route path="/account" element={ <UserAccount /> }>
-                <Route path="/account/feed" element={ <UserFeed /> } />
-                <Route path="/account/statistics" element={ <UserStatistics /> } />
-                <Route path="/account/add-photos" element={ <UserPhotoPost /> } />
-            </Route>
+            <Route path="/account" element={ <UserFeed /> } />
+            <Route path="/account/statistics" element={ <UserStatistics /> } />
+            <Route path="/account/add-photos" element={ <UserPhotoPost /> } />
         </Routes>
         <Footer />
     </UserStorage>

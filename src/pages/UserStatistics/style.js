@@ -1,5 +1,5 @@
 import styled from "styled-components";
 
-export const StatisticsStyle = styled.div`
-
+export const StatisticsStyle = styled.section`
+    ${({theme}) => theme.container}
 `;
