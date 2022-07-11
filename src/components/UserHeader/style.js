@@ -2,12 +2,22 @@ import styled, { css } from "styled-components";
 import { NavLink } from "react-router-dom";
 
 export const UserHeaderStyle = styled.header`
+    ${({theme}) => theme.container}
     display: grid;
     grid-template-columns: 1fr auto;
     align-items: center;
     margin-top: 2rem;
     margin-bottom: 1rem;
     position: relative;
+    transform: translateX(-20px);
+    animation: animeLeft .3s forwards;
+
+    @keyframes animeLeft {
+        to{
+            opacity: 1;
+            transform: initial;
+        }
+    }
 
     h2{
         font-family: ${({theme}) => theme.fontFamily.secund};

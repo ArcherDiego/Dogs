@@ -10,7 +10,6 @@ const useFetch = () => {
         let response
         let json
         try{
-            console.log(url)
             setError(null)
             setLoading(true)
             response = await fetch(url, options)

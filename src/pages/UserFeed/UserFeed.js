@@ -9,10 +9,12 @@ const UserFeed = () => {
 
     if(login === false || login === null) return <Navigate to='/login' />
     return(
-        <FeedStyle>
+        <>
             <UserAccount />
-            UserFeed
-        </FeedStyle>
+            <FeedStyle>
+                UserFeed
+            </FeedStyle>
+        </>
     )
 }
 

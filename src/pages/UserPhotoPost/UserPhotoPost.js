@@ -7,7 +7,7 @@ import UserAccount from "../Router/UserAccount"
 import useFetch from "../../hooks/useFetch"
 import useForm from "../../hooks/useForm"
 import { UserContext } from "../../useContext"
-import { PhotoPostStyle } from "./style"
+import { PhotoPostStyle, PreviewStyle, InputFileStyle } from "./style"
 import Error from "../../components/Error/Error"
 
 const UserPhotoPost = () => {
@@ -46,22 +46,24 @@ const UserPhotoPost = () => {
 
     if(login === false || login === null) return <Navigate to='/login' />
     return(
-        <PhotoPostStyle>
+        <>
             <UserAccount />
-            <div>
+            <PhotoPostStyle>
                 <form onSubmit={ handleSubmit }>
                     <Input label="Name" type="text" name="name" {...name} />
                     <Input label="Weight" type="number" name="weigth" {...weigth} />
                     <Input label="Age" type="number" name="age" {...age} />
-                    <input type="file" name="img" id="img" onChange={ handleChange } />
-                    {loading ? <Button>Loading...</Button> : <Button>Post</Button>}
+                    <InputFileStyle type="file" name="img" id="img" onChange={ handleChange } />
+                    {loading ? <Button disebled>Loading...</Button> : <Button>Post</Button>}
+                    <Error error={error} />
                 </form>
-                <Error error={error} />
                 <div>
-                    {img.preview && <div style={{backgroundImage: `url(${img.preview})`}}></div>}
+                    {img.preview && 
+                    <PreviewStyle style={{backgroundImage: `url('${img.preview}')`}}></PreviewStyle>
+                    }
                 </div>
-            </div>
-        </PhotoPostStyle>
+            </PhotoPostStyle>
+        </>
     )
 }
 

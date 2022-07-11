@@ -9,10 +9,12 @@ const UserStatistics = () => {
 
     if(login === false || login === null) return <Navigate to='/login' />
     return(
-        <StatisticsStyle>
+        <>
             <UserAccount />
-            UserStats
-        </StatisticsStyle>
+            <StatisticsStyle>
+                UserStats
+            </StatisticsStyle>
+        </>
     )
 }
 
