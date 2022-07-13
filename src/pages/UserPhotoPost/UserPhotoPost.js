@@ -40,7 +40,7 @@ const UserPhotoPost = () => {
     const handleChange = ({target}) => {
         setImg({
             preview: URL.createObjectURL(target.files[0]),
-            raw: target.files[0]
+            raw: target.files[0],
         })
     }
 
@@ -51,10 +51,10 @@ const UserPhotoPost = () => {
             <PhotoPostStyle>
                 <form onSubmit={ handleSubmit }>
                     <Input label="Name" type="text" name="name" {...name} />
-                    <Input label="Weight" type="number" name="weigth" {...weigth} />
-                    <Input label="Age" type="number" name="age" {...age} />
+                    <Input label="Weight" type="text" name="weigth" {...weigth} />
+                    <Input label="Age" type="text" name="age" {...age} />
                     <InputFileStyle type="file" name="img" id="img" onChange={ handleChange } />
-                    {loading ? <Button disebled>Loading...</Button> : <Button>Post</Button>}
+                    {loading ? (<Button disabled>Loading ...</Button>) : (<Button>Post</Button>)}
                     <Error error={error} />
                 </form>
                 <div>
