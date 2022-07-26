@@ -3,6 +3,7 @@ import useFetch from "../../hooks/useFetch"
 import { COMMENT_POST } from "../../api/api"
 import Error from "../Error/Error"
 import { ReactComponent as Enviar } from "../../assets/image/enviar.svg"
+import { FormCommentsStyle, TextAreaStyle, ButtonStyle } from "./style"
 
 const PhotoCommentsForm = ({id, setComments}) => {
     const [comment, setComment] = React.useState('')
@@ -14,28 +15,28 @@ const PhotoCommentsForm = ({id, setComments}) => {
 
     const handleSubmit = async (event) =>{
         event.preventDefault()
-        const {url, options} = COMMENT_POST(id, {comment})
+        const {url, options} = COMMENT_POST(id, { comment })
         const {response, json} = await request(url, options)
         if(response.ok){
             setComment('')
-            setComments((sendComment) => [...sendComment, json])
+            setComments((comments) => [...comments, json])
         }
     }
 
     return(
-        <form onSubmit={handleSubmit}>
-            <textarea 
+        <FormCommentsStyle onSubmit={handleSubmit}>
+            <TextAreaStyle 
                 id="comment"
                 name="comment"
                 placeholder="Make a comment..." 
                 value={comment} 
                 onChange={handleChange} 
             />
-            <button>
+            <ButtonStyle>
                 <Enviar />
-            </button>
+            </ButtonStyle>
             <Error error={error} />
-        </form>
+        </FormCommentsStyle>
     )
 }
 
