@@ -9,10 +9,6 @@ const PhotoCommentsForm = ({id, setComments}) => {
     const [comment, setComment] = React.useState('')
     const {request, error} = useFetch()
 
-    const handleChange = ({target}) => {
-        setComment(target.value)
-    }
-
     const handleSubmit = async (event) =>{
         event.preventDefault()
         const {url, options} = COMMENT_POST(id, { comment })
@@ -30,7 +26,7 @@ const PhotoCommentsForm = ({id, setComments}) => {
                 name="comment"
                 placeholder="Make a comment..." 
                 value={comment} 
-                onChange={handleChange} 
+                onChange={({target}) => setComment(target.value)} 
             />
             <ButtonStyle>
                 <Enviar />

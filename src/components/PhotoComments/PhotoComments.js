@@ -9,12 +9,12 @@ const PhotoComments = (props) => {
     const {login} = React.useContext(UserContext)
 
     React.useEffect(() => {
-        commentsSection.current.scrollTop = commentsSection.current.scrollHeight
+        commentsSection.current.scrollTop = commentsSection.current.scrollHeight;
     },[comments])
 
     return(
         <>
-            <ListCommentsStyle>
+            <ListCommentsStyle ref={commentsSection}>
                 {comments.map(comment => 
                 <li key={comment.comment_ID}>
                     <strong>{comment.comment_author}: </strong>

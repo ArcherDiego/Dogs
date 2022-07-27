@@ -43,19 +43,19 @@ export const PhotoContentStyle = styled.div`
         z-index: -1;
     }
 
-    img{
-        grid-row: 1/4;
-    }
-
     @media (max-width: 64rem) {
         height: auto;
         max-height: calc(100vh - 4rem);
         overflow-y: auto;
         grid-template-columns: minmax(20rem, 40rem);
+    }
+`;
 
-        img{
+export const ImgStyle = styled.div`
+    grid-row: 1/4;
+
+    @media (max-width: 64rem) {
         grid-row: 1;
-        }
     }
 `;
 

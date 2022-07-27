@@ -59,7 +59,7 @@ export const PHOTO_POST = (formData, token) => {
                 Authorization: 'Bearer ' + token,
             }
         },
-        body: formData
+        body: formData,
     }
 }
 
@@ -93,6 +93,18 @@ export const COMMENT_POST = (id, body) => {
                 Authorization: 'Bearer ' + window.localStorage.getItem('token'),
             },
             body: JSON.stringify(body)
+        }
+    }
+}
+
+export const PHOTO_DELETE = (id) => {
+    return {
+        url: `${API}/api/photo/${id}`,
+        options: {
+            method: 'DELETE',
+            headers: {
+                Authorization: 'Bearer ' + window.localStorage.getItem('token'),
+            },
         }
     }
 }

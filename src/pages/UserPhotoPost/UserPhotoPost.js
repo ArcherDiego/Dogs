@@ -12,29 +12,30 @@ import Error from "../../components/Error/Error"
 
 const UserPhotoPost = () => {
     const name = useForm()
-    const weigth = useForm('number')
-    const age = useForm('number')
-    const {data, error, loading, request} = useFetch()
-    const navigate = useNavigate()
-
-    const {login} = React.useContext(UserContext)
+    const weigth = useForm()
+    const age = useForm()
     const [img, setImg] = React.useState({})
+
+    const {data, error, loading, request} = useFetch()
+
+    const navigate = useNavigate()
 
     React.useEffect(() => {
         if(data) navigate('/account')
     }, [data, navigate])
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault()
         const formData = new FormData()
         formData.append('img', img.raw)
         formData.append('name', name.value)
         formData.append('weight', weigth.value)
         formData.append('age', age.value)
+        console.log(formData.name)
 
         const token = window.localStorage.getItem('token')
         const {url, options} = PHOTO_POST(formData, token)
-        request(url, options)
+        await request(url, options)
     }
 
     const handleChange = ({target}) => {
@@ -44,6 +45,7 @@ const UserPhotoPost = () => {
         })
     }
 
+    const {login} = React.useContext(UserContext)
     if(login === false || login === null) return <Navigate to='/login' />
     return(
         <>
@@ -51,10 +53,10 @@ const UserPhotoPost = () => {
             <PhotoPostStyle>
                 <form onSubmit={ handleSubmit }>
                     <Input label="Name" type="text" name="name" {...name} />
-                    <Input label="Weight" type="text" name="weigth" {...weigth} />
-                    <Input label="Age" type="text" name="age" {...age} />
+                    <Input label="Weight" type="number" name="weigth" {...weigth} />
+                    <Input label="Age" type="number" name="age" {...age} />
                     <InputFileStyle type="file" name="img" id="img" onChange={ handleChange } />
-                    {loading ? (<Button disabled>Loading ...</Button>) : (<Button>Post</Button>)}
+                    {loading ? (<Button disabled>Loading...</Button>) : (<Button>Post</Button>)}
                     <Error error={error} />
                 </form>
                 <div>
