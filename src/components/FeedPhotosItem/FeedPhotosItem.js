@@ -1,3 +1,4 @@
+import Image from "../Image/Image"
 import { FeedPhotosItemStyle, ViewStyle } from "./style"
 
 const FeedPhotosItem = ({photo, setModalPhoto}) => {
@@ -7,7 +8,7 @@ const FeedPhotosItem = ({photo, setModalPhoto}) => {
 
     return(
         <FeedPhotosItemStyle onClick={ handleClick }>
-            <img src={photo.src} alt={photo.title} />
+            <Image src={photo.src} alt={photo.title} />
             <ViewStyle>{photo.acessos}</ViewStyle>
         </FeedPhotosItemStyle>
     )
