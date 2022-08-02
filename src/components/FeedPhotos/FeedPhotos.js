@@ -6,16 +6,20 @@ import useFetch from "../../hooks/useFetch"
 import { PHOTOS_GET } from "../../api/api"
 import { FeedPhotosStyle } from "./style"
 
-const FeedPhotos = ({setModalPhoto}) => {
+const FeedPhotos = ({user, setModalPhoto}) => {
     const {data, error, loading, request} = useFetch()
 
     React.useEffect(() => {
+        const total = 3
         const fetchPhotos = async () =>{
-            const {url, options} = PHOTOS_GET({page: 1, total: 6, user: 0})
-            const {json} = await request(url, options)
+            const {url, options} = PHOTOS_GET({page: 1, total, user})
+            const {response, json} = await request(url, options)
+            if(response && response.ok && json.lenght < 3){
+
+            }
         }
         fetchPhotos()
-    },[request])
+    },[request, user])
 
     if(error) return <Error error={error} />
     if(loading) return <Loading />
