@@ -8,7 +8,7 @@ const Home = () => {
 
     return (
         <HomeStyle>
-            <Feed user={data.id} />
+            <Feed user={data} />
         </HomeStyle>
     )
 }

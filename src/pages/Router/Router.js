@@ -11,6 +11,7 @@ import UserFeed from "../UserFeed/UserFeed";
 import UserStatistics from "../UserStatistics/UserStatistics";
 import UserPhotoPost from "../UserPhotoPost/UserPhotoPost";
 import { UserStorage } from "../../useContext";
+import Photo from "../../components/Photo/Photo";
 
 const Router = () => {
     return (
@@ -25,6 +26,7 @@ const Router = () => {
             <Route path="/account" element={ <UserFeed /> } />
             <Route path="/account/statistics" element={ <UserStatistics /> } />
             <Route path="/account/add-photos" element={ <UserPhotoPost /> } />
+            <Route path="/photo/:id" element={ <Photo /> } />
         </Routes>
         <Footer />
     </UserStorage>
