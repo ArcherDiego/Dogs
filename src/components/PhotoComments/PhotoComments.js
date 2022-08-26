@@ -1,7 +1,7 @@
 import React from "react"
 import { UserContext } from "../../useContext"
 import PhotoCommentsForm from "../PhotoCommentsForm/PhotoCommentsForm"
-import { ListCommentsStyle } from "./style"
+import { ListCommentsStyle, SingleListCommentsStyle } from "./style"
 
 const PhotoComments = (props) => {
     const [comments, setComments] = React.useState(() => props.comments)
@@ -14,6 +14,16 @@ const PhotoComments = (props) => {
 
     return(
         <>
+            {props.single ? (
+            <SingleListCommentsStyle ref={commentsSection}>
+                {comments.map(comment => 
+                <li key={comment.comment_ID}>
+                    <strong>{comment.comment_author}: </strong>
+                    <span>{comment.comment_content}</span>
+                </li>
+                )}
+            </SingleListCommentsStyle>
+            ) : (
             <ListCommentsStyle ref={commentsSection}>
                 {comments.map(comment => 
                 <li key={comment.comment_ID}>
@@ -22,6 +32,7 @@ const PhotoComments = (props) => {
                 </li>
                 )}
             </ListCommentsStyle>
+            )}
             {login && <PhotoCommentsForm id={props.id} setComments={setComments} />}
         </>
     )

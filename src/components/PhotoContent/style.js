@@ -107,3 +107,73 @@ export const AuthorStyle = styled.p`
         background: url('${BlackView}');
     }
 `;
+
+export const SingleContentStyle = styled.div`
+    margin: auto;
+    height: auto;
+    border-radius: 0.2rem;
+    background: white;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+    overflow: hidden;
+    opacity: 0;
+    transform: scale(0.8);
+    animation: scaleUp 0.3s forwards;
+
+    h1{
+        font-family: ${({theme}) => theme.fontFamily.secund};
+        line-height: 1;
+        font-size: 3rem;
+        margin: 1rem 0;
+        position: relative;
+        z-index: 1;
+    }
+
+    h1::after{
+        content: '';
+        display: block;
+        width: 1.5rem;
+        height: 1.5rem;
+        background-color: #fb1;
+        position: absolute;
+        bottom: 5px;
+        left: -5px;
+        border-radius: .2rem;
+        z-index: -1;
+    }
+`;
+
+export const SingleImgStyle = styled.div`
+    grid-row: 1/1;
+    border-radius: 0.4rem;
+    overflow: hidden;
+`;
+
+export const SingleDetailsStyle = styled.div`
+    padding: 1rem 0 0 0;
+
+ul{
+    display: flex;
+    font-size: 1.125rem;
+    font-weight: bold;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+}
+
+li{
+    margin-right: 2rem;
+
+    &::before{
+        content: '';
+        display: inline-block;
+        height: 20px;
+        width: 2px;
+        margin-top: 5px;
+        margin-right: 0.5rem;
+        position: relative;
+        top: 3px;
+        background: #333;
+    }
+}
+`;

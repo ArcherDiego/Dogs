@@ -21,7 +21,7 @@ const Photo = () => {
     if(data){
         return(
             <PhotoContentPage>
-                <PhotoContent data={data} />
+                <PhotoContent single={true} data={data} />
             </PhotoContentPage>
         )
     } else return null
