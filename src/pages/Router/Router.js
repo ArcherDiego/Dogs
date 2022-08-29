@@ -12,6 +12,8 @@ import UserStatistics from "../UserStatistics/UserStatistics";
 import UserPhotoPost from "../UserPhotoPost/UserPhotoPost";
 import { UserStorage } from "../../useContext";
 import Photo from "../../components/Photo/Photo";
+import UserProfile from "../../components/UserProfile/UserProfile";
+import NotFound from "../../components/NotFound/NotFound";
 
 const Router = () => {
     return (
@@ -27,6 +29,8 @@ const Router = () => {
             <Route path="/account/statistics" element={ <UserStatistics /> } />
             <Route path="/account/add-photos" element={ <UserPhotoPost /> } />
             <Route path="/photo/:id" element={ <Photo /> } />
+            <Route path="/profile/:user" element={ <UserProfile /> } />
+            <Route path="*" element={ <NotFound /> } />
         </Routes>
         <Footer />
     </UserStorage>
