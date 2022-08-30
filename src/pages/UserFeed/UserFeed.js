@@ -5,6 +5,7 @@ import { Navigate } from "react-router-dom"
 import { UserContext } from "../../useContext"
 import UserAccount from "../Router/UserAccount"
 import { FeedStyle } from "./style"
+import Head from "../../components/Head/Head"
 
 const UserFeed = () => {
     const [modalPhoto, setModalPhoto] = React.useState(null)
@@ -13,6 +14,7 @@ const UserFeed = () => {
     if(login === false || login === null) return <Navigate to='/login' />
     return(
         <>
+            <Head title='My account' />
             <UserAccount />
             <FeedStyle>
                 {modalPhoto && <FeedModal photo={ modalPhoto } setModalPhoto={ setModalPhoto } />}

@@ -7,6 +7,7 @@ import useFetch from "../../hooks/useFetch"
 import { UserContext } from "../../useContext"
 import { USER_POST } from "../../api/api"
 import LoginRegisterStyle from "./style"
+import Head from "../../components/Head/Head"
 
 const LoginRegister = () => {
     const username = useForm()
@@ -29,6 +30,7 @@ const LoginRegister = () => {
 
     return (
         <LoginRegisterStyle>
+            <Head title='Register' />
             <div>
                 <h2>Register</h2>
                 <form onSubmit={ handleSubmit }>

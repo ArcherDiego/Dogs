@@ -6,6 +6,7 @@ import Button from "../../components/Button/Button"
 import useForm from "../../hooks/useForm"
 import { UserContext } from "../../useContext"
 import { LoginFormStyle, LinkForgot, LinkBtn, RegisterStyle } from "./style"
+import Head from "../../components/Head/Head"
 
 const LoginForm = () => {
 
@@ -24,6 +25,7 @@ const LoginForm = () => {
 
     return (
         <LoginFormStyle>
+            <Head title='Login' />
             <div>
                 <h2>Login</h2>
                 <form onSubmit={ handleSubmit }>

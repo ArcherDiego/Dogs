@@ -1,6 +1,7 @@
 import React from "react"
 import { Navigate, useNavigate } from "react-router-dom"
 import { PHOTO_POST } from "../../api/api"
+import Head from "../../components/Head/Head"
 import Button from "../../components/Button/Button"
 import Input from "../../components/Input/Input"
 import UserAccount from "../Router/UserAccount"
@@ -49,6 +50,7 @@ const UserPhotoPost = () => {
     if(login === false || login === null) return <Navigate to='/login' />
     return(
         <>
+            <Head title='PhotoPost' />
             <UserAccount />
             <PhotoPostStyle>
                 <form onSubmit={ handleSubmit }>
