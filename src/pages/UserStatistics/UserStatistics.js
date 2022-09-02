@@ -1,4 +1,4 @@
-import React from "react"
+import React, { lazy } from "react"
 import Head from "../../components/Head/Head"
 import { Navigate } from "react-router-dom"
 import { UserContext } from "../../useContext"
@@ -8,7 +8,7 @@ import useFetch from "../../hooks/useFetch"
 import Loading from "../../components/Loading/Loading"
 import Error from "../../components/Error/Error"
 import { STATS_GET } from "../../api/api"
-import StatsGraph from "../../components/StatsGraph/StatsGraph"
+const StatsGraph = React.lazy(() => import("../../components/StatsGraph/StatsGraph"))
 
 const UserStatistics = () => {
     const {data, loading, error, request} = useFetch()
@@ -27,13 +27,13 @@ const UserStatistics = () => {
     if(error) return <Error error={error} />
     if(data){
     return(
-        <>
+        <React.Suspense fallback={<Loading />}>
             <Head title='Stats' />
             <UserAccount />
             <StatisticsStyle>
                 <StatsGraph data={data} />
             </StatisticsStyle>
-        </>
+        </React.Suspense>
     )} else return null
 }
 
